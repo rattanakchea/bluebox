@@ -2,9 +2,12 @@
 define([
     'underscore',
     'backbone',
-    '../models/dvd'
-], function (_, Backbone, Dvd) {
+    '../models/dvd',
+    'text!views/templates/dvd.html'
+], function (_, Backbone, Dvd, template) {
     'use strict';
+
+    console.log(template);
 
     var view = Backbone.View.extend({
 
@@ -12,12 +15,12 @@ define([
 
         tagName: 'li',
 
-        template: _.template($('#item-template').html()),
+        template: _.template(template),
 
         render: function() {
             this.$el.html(this.template(this.model.toJSON()));
             return this;
-        },
+        }
 
 
     });

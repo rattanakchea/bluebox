@@ -10,8 +10,6 @@ define([
             title: '',
             genre: ''
         }
-
-
     });
 
     return DVD;
