@@ -1,4 +1,10 @@
-
-
-<h2>DVD title</h2>
-<p>dvd description here....</p>
+<div class="col-xs-3">
+    <div class="card">
+        <img class="card-img-top" src="<%= image %>" alt="movie title" style="width:100%">
+        <div class="card-block">
+            <div><h4 class="card-title"><%= title %></h4><span><%= genre %></span></div>
+            <p class="card-text"><%= description %></p>
+            <a href="#" class="btn btn-primary">Add to card</a>
+        </div>
+    </div>
+</div>

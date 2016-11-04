@@ -7,13 +7,15 @@ define([
 ], function (_, Backbone, Dvd, template) {
     'use strict';
 
-    console.log(template);
 
+    //el property can be attached to a DOM or otherwise created from
+    // tagName, className,, id and attribute properties.
+    // if none are set, this.el is an empty div
+
+    // this.$el is a cached of jQuery on the view
+    // this.$el.find(selector) is equivalent to this.$(selector)
     var view = Backbone.View.extend({
 
-        model: Dvd,
-
-        tagName: 'li',
 
         template: _.template(template),
 

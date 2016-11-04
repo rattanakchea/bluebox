@@ -10,22 +10,29 @@ require.config({
 //run the app
 
 require([
-    'backbone',
-    'models/dvd'
-], function (Backbone, Dvd) {
-
-    console.log(Backbone);
+    'jquery', 'underscore', 'backbone', 'views/dvdList', 'collections/dvds', 'models/dvd', 'views/dvd'
+], function ($, _, Backbone, DvdList, DvdCollection, Dvd, DvdView) {
 
 
-    var dvd = new Dvd({title: 'some movie'});
-    console.log(dvd);
-});
+    var testData = { title: 'some movie', description: 'some movie description'};
 
-//testing
-require([
-    'jquery', 'underscore', 'backbone', 'models/dvd', 'views/dvd'
-], function ($, _, Backbone, Dvd, DvdView) {
+    //create a collection
 
-    console.log(new Dvd());
-    console.log(DvdView);
+
+    var dvd = new Dvd(testData);
+
+    var collection = new DvdCollection();
+
+    for (var i=0; i <= 4; i++){
+        collection.add(testData);
+    }
+
+
+    //run the appView
+    new DvdList({collection: collection});
+
+    console.log(DvdList);
+
+
+
 });

@@ -7,9 +7,13 @@ define([
 
     var DVD = Backbone.Model.extend({
         defaults: {
-            title: '',
-            genre: ''
+            image: 'img/poster1.jpg',
+            title: 'Some Title',
+            description: 'some description',
+            genre: 'Horror'
         }
+
+
     });
 
     return DVD;
