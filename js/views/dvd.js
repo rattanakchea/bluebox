@@ -17,11 +17,20 @@ define([
     var view = Backbone.View.extend({
 
 
+        className: 'dvd',
         template: _.template(template),
 
         render: function() {
             this.$el.html(this.template(this.model.toJSON()));
             return this;
+        },
+
+        events: {
+            'click .card img': 'navigate'
+        },
+
+        navigate: function(){
+            console.log('navigate to detail page');
         }
 
 

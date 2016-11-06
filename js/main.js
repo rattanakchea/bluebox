@@ -10,29 +10,26 @@ require.config({
 //run the app
 
 require([
-    'jquery', 'underscore', 'backbone', 'views/dvdList', 'collections/dvds', 'models/dvd', 'views/dvd'
-], function ($, _, Backbone, DvdList, DvdCollection, Dvd, DvdView) {
+    'jquery', 'underscore', 'backbone', 'routers/router', 'utils/dataFaker', 'views/dvdList', 'collections/dvds', 'models/dvd', 'views/dvd'
+], function ($, _, Backbone, Router, DataFaker, DvdList, DvdCollection, DvdModel, DvdView) {
 
 
-    var testData = { title: 'some movie', description: 'some movie description'};
+    new Router();
+    Backbone.history.start();
 
-    //create a collection
 
 
-    var dvd = new Dvd(testData);
+    //generate sample data
+    var sampleData = DataFaker.generateTestData(4);
 
-    var collection = new DvdCollection();
+    var collection = new DvdCollection(sampleData);
 
-    for (var i=0; i <= 4; i++){
-        collection.add(testData);
-    }
 
 
     //run the appView
-    new DvdList({collection: collection});
+    var appView = new DvdList({collection: collection});
 
-    console.log(DvdList);
-
+    console.log('appView', appView);
 
 
 });

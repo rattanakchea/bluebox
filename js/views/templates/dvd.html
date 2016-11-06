@@ -1,10 +1,9 @@
 <div class="col-xs-3">
     <div class="card">
-        <img class="card-img-top" src="<%= image %>" alt="movie title" style="width:100%">
+        <a href="#dvd/<%= id %>"><img class="card-img-top" src="<%= image %>" alt="movie title" style="width:100%"></a>
         <div class="card-block">
-            <div><h4 class="card-title"><%= title %></h4><span><%= genre %></span></div>
-            <p class="card-text"><%= description %></p>
-            <a href="#" class="btn btn-primary">Add to card</a>
+            <div><h5 class="card-title"><%= title %></h5>
+            <a href="#" class="btn btn-primary addToCard">Add to cart</a>
         </div>
     </div>
 </div>

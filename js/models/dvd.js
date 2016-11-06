@@ -7,6 +7,7 @@ define([
 
     var DVD = Backbone.Model.extend({
         defaults: {
+            id: '',
             image: 'img/poster1.jpg',
             title: 'Some Title',
             description: 'some description',
