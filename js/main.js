@@ -28,7 +28,7 @@ require([
 
 
     new Router({
-        collection: dvdCollection,
+        appView: appView,
         cartView: new CartView({collection: new DvdCollection()})
     });
 

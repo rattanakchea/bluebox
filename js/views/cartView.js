@@ -17,11 +17,10 @@ define([
 
         //append all the dvd into the list
         initialize: function(){
-
+            this.listenTo(this.collection, 'all', this.render);
         },
 
         render: function() {
-
             this.$('#cartView').empty();
             this.addAll();
 

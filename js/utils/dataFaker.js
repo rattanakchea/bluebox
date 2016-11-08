@@ -28,9 +28,7 @@ define([
             var arr = [];
             for (var i=0; i < count; i++){
                 i = i % testData.length;
-
                 testData[i].id = i;
-
                 arr.push(testData[i]);
             }
 
@@ -42,8 +40,6 @@ define([
         getDvdModel: function(){
             return new DvdModel(testData);
         }
-
-
 
 
 

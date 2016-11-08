@@ -62,7 +62,6 @@ define([
         },
 
         addOne: function(dvd){
-
             var view = new DvdView({ model: dvd });
             this.$dvdList.append(view.render().el);
 
