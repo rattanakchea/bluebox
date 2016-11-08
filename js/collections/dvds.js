@@ -10,13 +10,9 @@ define([
 
         model: Dvd,
 
-
         initialize: function(){
-            console.log('dvd collections');
 
         }
-
-
 
     });
 

@@ -13,23 +13,25 @@ require([
     'jquery', 'underscore', 'backbone', 'routers/router', 'utils/dataFaker', 'views/dvdList', 'collections/dvds', 'models/dvd', 'views/dvd'
 ], function ($, _, Backbone, Router, DataFaker, DvdList, DvdCollection, DvdModel, DvdView) {
 
+    //generate sample data
+    var sampleData = DataFaker.generateTestData(4);
 
-    new Router();
+    var dvdCollection = new DvdCollection(sampleData);
+
+    //run the appView
+    var appView = new DvdList({collection: dvdCollection});
+
+
+    new Router({
+        collection: dvdCollection
+    });
+
+
     Backbone.history.start();
 
 
 
-    //generate sample data
-    var sampleData = DataFaker.generateTestData(4);
 
-    var collection = new DvdCollection(sampleData);
-
-
-
-    //run the appView
-    var appView = new DvdList({collection: collection});
-
-    console.log('appView', appView);
 
 
 });

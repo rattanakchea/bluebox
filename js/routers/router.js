@@ -9,33 +9,42 @@ define([
 
     var Router = Backbone.Router.extend({
 
-        initialize: function(){
+        initialize: function(options){
+
+            //dvd collection
+            this.dvds = options.collection;
+
 
             this.appView = $('#app');
-
             this.detailView = $('#detailView');
-
 
         },
 
         routes: {
             '': 'index',
-            'dvd/:id': 'gotoDvdDetail'
+            'dvd/:id': 'displaySingleDvd',
+            'cart': 'displayCart'
         },
         index: function () {
            console.log('index route');
+
+            this.appView.show();
+            this.detailView.empty();
         },
 
-        gotoDvdDetail: function(){
+        displaySingleDvd: function(id){
+
+            console.log(id);
+
+            var selectedDvdModel = this.dvds.get(parseInt(id));
+
+            console.log(selectedDvdModel.toJSON());
+
+
+            var DetailView = new DvdDetail({model: selectedDvdModel});
+
             this.appView.hide();
-
-            var  DvdModel = Faker.getDvdModel();
-
-            var DetailView = new DvdDetail({model: DvdModel});
-
             this.detailView.append(DetailView.render().el);
-
-
 
 
 
