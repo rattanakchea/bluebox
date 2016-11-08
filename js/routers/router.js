@@ -13,6 +13,7 @@ define([
 
             //dvd collection
             this.dvds = options.collection;
+            this.cartView = options.cartView;
 
 
             this.appView = $('#app');
@@ -23,6 +24,7 @@ define([
         routes: {
             '': 'index',
             'dvd/:id': 'displaySingleDvd',
+            'add/:id': 'addToCart',
             'cart': 'displayCart'
         },
         index: function () {
@@ -45,7 +47,17 @@ define([
 
             this.appView.hide();
             this.detailView.append(DetailView.render().el);
+        },
 
+        addToCart: function(id){
+
+            console.log('add dvd with this id to cart: ', id);
+            //Backbone.history.navigate('/', {trigger: true});
+
+            var selectedDvdModel = this.dvds.get(parseInt(id));
+
+            this.cartView.collection.add(selectedDvdModel);
+            this.cartView.render();
 
 
         }

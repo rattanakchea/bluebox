@@ -10,8 +10,12 @@ require.config({
 //run the app
 
 require([
-    'jquery', 'underscore', 'backbone', 'routers/router', 'utils/dataFaker', 'views/dvdList', 'collections/dvds', 'models/dvd', 'views/dvd'
-], function ($, _, Backbone, Router, DataFaker, DvdList, DvdCollection, DvdModel, DvdView) {
+    'jquery', 'underscore', 'backbone', 'routers/router', 'utils/dataFaker',
+    'views/dvdList', 'views/cartView',
+    'collections/dvds', 'models/dvd', 'views/dvd'
+], function ($, _, Backbone, Router, DataFaker,
+             DvdList, CartView,
+             DvdCollection, DvdModel, DvdView) {
 
     //generate sample data
     var sampleData = DataFaker.generateTestData(4);
@@ -22,8 +26,10 @@ require([
     var appView = new DvdList({collection: dvdCollection});
 
 
+
     new Router({
-        collection: dvdCollection
+        collection: dvdCollection,
+        cartView: new CartView({collection: new DvdCollection()})
     });
 
 

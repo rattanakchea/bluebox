@@ -17,8 +17,21 @@ define([
     var view = Backbone.View.extend({
 
 
+        initialize: function(options){
+
+            this.options = options || {};
+            _.extend(this, this.options);
+
+            //used the passed in template first,
+            var temp = options.template || template;
+
+            this.template = _.template(temp);
+
+        },
+
+
         className: 'dvd',
-        template: _.template(template),
+
 
         render: function() {
             this.$el.html(this.template(this.model.toJSON()));
