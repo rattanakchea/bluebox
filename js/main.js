@@ -3,7 +3,7 @@ require.config({
         jquery: "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min",
         backbone: "../bower_components/backbone/backbone",
         underscore: "../bower_components/underscore/underscore",
-        text: '../node_modules/text/text'
+        text: './text'
     }
 });
 
